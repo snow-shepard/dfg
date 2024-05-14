@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+
+<div class="tovar">
+    <div class="container">
+            <p style="font-size:35px;" class="tovar__main">{{ post.title }}</p>
+            <div class="tovar__line"></div>
+            
+            <div class="recept">
+                <p>Дата публикации: {{ post.data }}</p>
+                <p><img  class="recept" src='{{ post.photo.url }}'></p>
+                <p class="recept">{{post.content | linebreaks}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

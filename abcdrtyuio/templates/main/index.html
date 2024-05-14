@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="RU">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/1style.css' %}">
+    <title>Домашний Повар</title>
+</head>
+
+<body>
+  
+<header class="header">
+  <nav class="nav">
+
+    <a class="men" href="{% url 'home' %}">
+      Главная
+    </a>
+    <a class="men" href="{% url 'map_home' %}">
+      Карта сайта
+    </a>
+    <a class="men" href="{% url 'onas' %}">
+      О нас
+    </a>
+    {% if request.user.is_authenticated %}
+    
+    <a class="men" href="{% url 'logout' %}">
+      Выйти
+    </a>
+    <a class="men">
+      {{ user.username }}
+    </a>
+    {% else %}
+          
+    <a class="men" href="{% url 'login' %}">
+      Вход
+    </a>
+    <a class="men" href="{% url 'register' %}">
+      Регистрация
+    </a>
+    {% endif %}
+	  <a class="logo"> 
+		  <img src="{% static 'main/images/222.png' %}" alt="Домашний повар">
+    </a>
+    
+    
+    <div class="menu_top">
+      <ul class="menu">
+        <li><a href="#">Рецепты супов</a></li>
+        <li><a href="#">Рецепты из мяса</a></li>
+        <li><a href="#">Рецепты салатов</a></li>
+        <li><a href="#">Рецепты из рыбы</a></li>
+        <li><a href="#">Вторые блюда</a></li>
+      </ul>
+    </div>
+    
+    <a>
+      <input type="text" class="search_input" placeholder="Поиск">
+    </a>
+    <a>
+      <button class="nati" type="submit">Найти</button>
+    </a>
+    
+  </nav>
+</header>
+
+<main>
+    <section>
+            <div class="tovar">
+                <div class="container">
+                    <p style="font-size:35px;" class="tovar__main">Блюда от шеф-поваров</p>
+                    <div class="tovar__line"></div>
+                    <div class="tovar__price">
+                        <div class="tovar__price__elem">
+                          <img src="{% static 'main/images/Dorada-na-grile-s-ovoshhami-190x190.jpg' %}" alt="1">
+                          <p>Рецепты дорадо</p>
+                          <p>Дорадо – очень популярная рыба, которую используют шеф-повара в средиземноморской кухне. Дорадо готовят по разнообразным рецептам, нежная, вкусная, немного жирная рыбы используется множеством - </p>
+                           
+                           
+                        </div>
+                        <div class="tovar__price__elem">
+                          <img src="{% static 'main/images/Hinkali-190x190.jpg' %}" alt="1">
+                          <p>Рецепты блюд от грузинского шеф-повара</p>
+                          <p>Национальная грузинская кухня похожа на кавказскую кухню. В отдельных регионах Грузии существуют свои способы приготовления блюд. Чаще всего в мясных блюдах используется говядина и баранина, но также и - </p>
+                
+                         
+                        </div>
+                        <div class="tovar__price__elem">
+                          <img src="{% static 'main/images/SHurpa-iz-baraniny-190x190.jpg' %}" alt="1">
+                          <p>Шурпа из баранины</p>
+                          <p>Шурпа – жирный, наваренный суп, традиционно ее основным ингредиентом является баранина. Лучшие части баранины для этого супа — корейка и грудинка. Подойдут и рёбрышки, хотя мяса на них меньше. В идеале шурпу - </p>
+                            
+                        </div>
+                        <div class="tovar__price__elem">
+                          <img src="{% static 'main/images/Baranya-lopatka-s-chesnokom-i-myatoj-190x190.jpg' %}" alt="1">
+                          <p>Баранья лопатка запеченная</p>
+                          <p>Баранину предпочитают, как жители Средней Азии и Кавказа, так и многие наши соотечественники. Баранью лопатку найти на рынке не так сложно, готовить ее достаточно быстро, и она может быть -</p>
+                          
+                        </div>
+                        <div class="tovar__price__elem">
+                          <img src="{% static 'main/images/Suvlaki-iz-baraniny-190x190.jpg' %}" alt="1">
+                          <p>Рецепт сувлаки</p>
+                          <p>Сувлаки – это небольшие шашлычки на деревянных шпажках, блюдо берет свое начало из греческой кухни. Как правило, для его приготовления используется свинина или баранина и реже  курица или рыба.</p>                            
+                        </div>
+                        <div class="tovar__price__elem">
+                          <img src="{% static 'main/images/Manty-s-baraninoj-250x150.jpg' %}" alt="1">
+                          <p>Манты с бараниной и тыквой</p>
+                          <p>В центральной Азии существует традиционная еда — манты. А если традиции есть, то знатоки утверждают, что правильно для этого блюда нужно рубить мясо с помощью тесака или - </p>          
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="tovar">
+          <div class="container">
+              <p style="font-size:35px;" class="tovar__main">Выпечка</p>
+              <div class="tovar__line"></div>
+              <div class="tovar__price">
+                  <div class="tovar__price__elem">
+                    <img src="{% static 'main/images/Screenshot_1-9-250x150.jpg' %}" alt="1">
+                    <p>Рецепты имбирного печенья</p>
+                    <p>Наверное, нету такого человека, который не любит насладится чашечкой чая или кофе с парочкой имбирного печенья. А некоторые просто получают - </p>
+                        
+                  </div>
+                  <div class="tovar__price__elem">
+                    <img src="{% static 'main/images/piewithcurrant-250x150.jpg' %}" alt="1">
+                    <p>Рецепт глазированного пирога со смородиной</p>
+                    <p>Этот пирог получается очень легким, нежным и вкусным. Данной выпечкой можно порадовать не только близких, но и гостей. А готовится он очень - </p>
+          
+                  </div>
+                  <div class="tovar__price__elem">
+                    <img src="{% static 'main/images/bulochki-ulitki-250x150.jpg' %}" alt="1">
+                    <p>Улитки из теста</p>
+                    <p>Рецепт теста: 250 г муки высшего сорта 5 стол. ложек молока пару яиц масло сливочное 250 г один средний лимон (выжать) соль по вкусу Рецепт начинки: смесь - </p>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  <div class="tovar">
+    <div class="container">
+        <p style="font-size:35px;" class="tovar__main">Салаты</p>
+        <div class="tovar__line"></div>
+        <div class="tovar__price">
+            <div class="tovar__price__elem">
+              <img src="{% static 'main/images/2865-250x150.jpg' %}" alt="1">
+              <p>Салат из индейки с сельдереем</p>
+              <p>Всем, кто истосковался  по лету, посвящается. Рецепт лёгкого овощного салата, сплошные витамины и ничего лишнего. Нам потребуется: полкило - </p>
+                  
+            </div>
+            <div class="tovar__price__elem">
+              <img src="{% static 'main/images/dieticheskie-produkty_3_1-250x150.jpg' %}" alt="1">
+              <p>Салат из брокколи с сельдереем и орехами</p>
+              <p>Для салата нужно будет: упаковка брокколи – 400 гр. (одна упаковка) сельдерей – 4 шт. орехи чеснок – 2-3 дольки Готовим салат: Чтобы - </p>
+    
+            </div>
+            <div class="tovar__price__elem">
+              <img src="{% static 'main/images/image_817-250x150.jpeg' %}" alt="1">
+              <p>Салат «Херсонский» из свиного языка</p>
+              <p>Вам понадобится: 250 грамм консервированного зеленого горошка; 150 грамм свиного языка; 200 грамм риса; 4 яйца; зеленый лук; петрушка; 200 грамм - </p>     
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+  </section>
+    </main>
+    
+    <footer class="footer">
+		<div class="container">
+			<div class="footer-line"></div>
+			<div class="footer-content">
+				<div class="footer-content__about">
+					<ul>
+						<li>Об Домашний повар </li>
+						<li>Помощь</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-line"></div>
+			<div class="footer-install">
+			</div>
+		</div>
+	</footer>
+<div class="btn-up btn-up_hide"></div>
+<script src="{% static 'main/js/JS.js' %}"></script>
+</body>
+</html>

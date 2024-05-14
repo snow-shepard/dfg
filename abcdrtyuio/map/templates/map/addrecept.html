@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+
+{% block content %}
+
+<div class="tovar">
+    <div class="container">
+        <p style="font-size:35px;" class="tovar__main">Добавить рецепт</p>
+        <div class="tovar__line"></div>
+            
+        <form action= "{% url 'addrecept' %}" method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for f in form %}
+            <div class="recept">
+            <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+            <div>{{ form.non_field_errors }}</div>
+            </div>
+        {% endfor %}
+        <button  class="form_auth_button" type='submit'>Добавить</button>
+        </form>
+      
+    </div>
+</div>
+
+
+
+{% endblock %}

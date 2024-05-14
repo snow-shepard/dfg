@@ -1,0 +1,32 @@
+{% extends 'main/layout.html' %}
+
+
+
+{% block content %}
+
+<div class="tovar">
+    <div class="container">
+        <p style="font-size:35px;" class="tovar__main">Регистрация</p>
+    <div class="tovar__line"></div>
+        <div class="form_auth_block">
+            <div class="form_auth_block_content">
+
+                <form method="POST">
+                {% csrf_token %}
+                {% for f in form %}
+                    <div class="recept">
+                    <p><label class="form_auth_style" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+                    <div>{{ form.non_field_errors }}</div>
+                    </div>
+                {% endfor %}
+                <button  class="form_auth_button" type='submit'>Зарегистрироваться</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock  %}

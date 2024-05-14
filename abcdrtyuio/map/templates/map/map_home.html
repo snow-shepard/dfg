@@ -1,0 +1,44 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Домашний Повар/karta
+{% endblock  %}
+
+{% block content %}
+<div class="tovar">
+    <div class="container">
+    <p style="font-size:35px;" class="tovar__main">Карта сайта</p>
+          <div class="tovar__line"></div>
+
+          {% if request.user.is_authenticated %}
+          <ul><a class="men" href="{% url 'addrecept' %}">Добавить рецепт</a></ul> 
+          {% else %}
+          <ul><a class="men">Чтобы добавить рецепт нужно войти в AKK</a></ul> 
+          {% endif %}
+
+          {% if cat_selected == 0 %}
+          <ul><a class="men">Все категории</a></ul>  
+          {% else %}
+          <ul><a class="men" href="{% url 'map_home' %}">Все категории</a></ul> 
+          {% endif %}   
+          
+          {% for el in cats %}
+              {% if el.pk == cat_selected %}
+              <ul><a class="men">{{ el.name }}</a></ul>
+              {% else %}
+              <ul><a class="men" href="{{ el.get_absolute_url }}">{{ el.name }}</a></ul>
+              {% endif %}   
+          {% endfor %}
+          
+          <div class="tovar__line"></div>
+
+          {% for p in recept %}
+          <ul>
+            <a class="men_krt" href="{{ p.get_absolute_url }}">{{ p.title }}</a>
+          </ul>
+          {% endfor %}  
+
+          </div>
+      </div>
+  </div>
+{% endblock  %}

@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="RU">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/1style.css' %}">
+    <title>{% block title %}Домашний Повар/main{% endblock  %}</title>
+</head>
+
+<body>
+  
+<header class="header">
+  <nav class="nav">
+
+    <a class="men" href="{% url 'home' %}">
+      Главная
+    </a>
+    <a class="men" href="{% url 'map_home' %}">
+      Карта сайта
+    </a>
+    <a class="men" href="{% url 'onas' %}">
+      О нас
+    </a>
+    {% if request.user.is_authenticated %}
+    
+    <a class="men" href="{% url 'logout' %}">
+      Выйти
+    </a>
+    <a class="men">
+      {{ user.username }}
+    </a>
+    {% else %}
+          
+    <a class="men" href="{% url 'login' %}">
+      Вход
+    </a>
+    <a class="men" href="{% url 'register' %}">
+      Регистрация
+    </a>
+    {% endif %}
+	  <a class="logo"> 
+		  <img src="{% static 'main/images/222.png' %}" alt="Домашний повар">
+    </a>
+    
+    
+    <div class="menu_top">
+      <ul class="menu">
+        <li><a href="#">Рецепты супов</a></li>
+        <li><a href="#">Рецепты из мяса</a></li>
+        <li><a href="#">Рецепты салатов</a></li>
+        <li><a href="#">Рецепты из рыбы</a></li>
+        <li><a href="#">Вторые блюда</a></li>
+      </ul>
+    </div>
+    
+    <a>
+      <input type="text" class="search_input" placeholder="Поиск">
+    </a>
+    <a>
+      <button class="nati" type="submit"> Найти</button>
+    </a>
+    
+  </nav>
+</header>
+
+<main>
+    {% block content %}
+    {% endblock  %}   
+</main>
+    
+    <footer class="footer">
+		<div class="container">
+			<div class="footer-line"></div>
+			<div class="footer-content">
+				<div class="footer-content__about">
+					<ul>
+						<li>Об Домашний повар </li>
+						<li>Помощь</li>
+					</ul>
+				</div>
+			</div>
+			<div class="footer-line"></div>
+			<div class="footer-install">
+			</div>
+		</div>
+	</footer>
+<div class="btn-up btn-up_hide"></div>
+<script src="{% static 'main/js/JS.js' %}"></script>
+
+</body>
+</html>
